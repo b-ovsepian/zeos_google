@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.google.com.ua/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        font-family: arial, sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        background-color: #fff;
+        color: #202124;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .section {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .logo {
+        margin: 0 auto 20px;
+      }
+
+      .search__form {
+        background: #fff;
+        border: 1px solid #dfe1e5;
+        box-shadow: none;
+        border-radius: 24px;
+        height: 44px;
+        margin: 0 auto 30px;
+        width: 584px;
+
+        padding: 0 8px 0 16px;
+
+        display: flex;
+        align-items: center;
+      }
+      .search__form:hover,
+      .search__form:focus {
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        border-color: rgba(223, 225, 229, 0);
+      }
+      .search__input {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: 0 20px;
+        color: rgba(0, 0, 0, 0.87);
+        word-wrap: break-word;
+        outline: none;
+
+        height: 34px;
+        width: 100%;
+        font-size: 16px;
+
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-shadow: none;
+      }
+      .search_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: transparent;
+        border: none;
+
+        height: 100%;
+        min-width: 40px;
+        cursor: pointer;
+      }
+      .search_btn:focus {
+        outline: none;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        border-radius: 4px;
+        color: #3c4043;
+        font-size: 14px;
+        padding: 0 16px;
+        line-height: 27px;
+        height: 36px;
+        min-width: 54px;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+      .btn:hover,
+      .btn:focus {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        background-color: #f8f9fa;
+        border: 1px solid #dadce0;
+        color: #202124;
+      }
+      .language__title {
+        display: inline;
+        margin: 0;
+      }
+      .language__link {
+        display: inline-block;
+        text-decoration: none;
+      }
+      .language__link:visited {
+        color: #609;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="section">
+        <h1 class="visually-hidden">Google</h1>
+        <img
+          class="logo"
+          src="./image/logo.png"
+          alt="google png"
+          width="272"
+          height="92"
+        />
+        <form class="search__form">
+          <img src="./image/search.svg" alt="search" />
+          <input class="search__input" type="text" autofocus />
+          <button type="button" class="search_btn">
+            <img
+              src="./image/tia.png"
+              alt="tia"
+              aria-label="use virtual keyboard to search"
+            />
+          </button>
+          <button type="button" class="search_btn">
+            <img
+              src="./image/mic.svg"
+              alt="mic"
+              aria-label="use mic to search"
+            />
+          </button>
+        </form>
+        <button type="button" class="btn" id="searchBtn">Пошук Google</button>
+        <button type="button" class="btn" id="imLuckyBtn">
+          Мені пощастить
+        </button>
+        <div class="language">
+          <p class="language__title">Мова Google:</p>
+          <a
+            href="/index.html"
+            class="language__link"
+            aria-label="switch to russian"
+            >русский</a
+          >
+          <a
+            href="/index.html"
+            class="language__link"
+            aria-label="switch to English"
+            >English</a
+          >
+        </div>
+      </section>
+    </main>
+    <script type="module">
+      const logoRef = document.querySelector(".logo");
+      const searchBtn = document.getElementById("searchBtn");
+      const imLuckyBtn = document.getElementById("imLuckyBtn");
+      const searchInput = document.querySelector(".search__input");
+      const searchForm = document.querySelector(".search__form");
+
+      function searchHandler() {
+        return window.open(`https://g.zeos.in/?q=${searchInput.value}`);
+      }
+      searchBtn.addEventListener("click", searchHandler);
+      searchForm.addEventListener("submit", searchHandler);
+      imLuckyBtn.addEventListener("click", () => {
+        logoRef.src = "https://picsum.photos/300/100";
+      });
+    </script>
+  </body>
+</html>
